@@ -3,28 +3,28 @@ public:
     vector<string> commonChars(vector<string>& words) {
        unordered_map <char , int> umap1;
         
-        for(char c = 'a' ; c <= 'z' ; ++c)
-            umap1[c] = 100;
+        for(char i = 'a' ; i <= 'z' ; ++i)
+            umap1[i] = 100;
 
         unordered_map <char , int> umap2;
         for(string &word : words)
         {
             umap2.clear();
             //Store the count of every character in a hash map count
-            for(char c : word)
-                umap2[c]++;
+            for(char i : word)
+                umap2[i]++;
 
-            for(char c = 'a' ; c <= 'z' ; ++c)
-                umap1[c] = min(umap1[c] , umap2[c]);
+            for(char i = 'a' ; i <= 'z' ; ++i)
+                umap1[i] = min(umap1[i] , umap2[i]);
         }
-        
+
         vector <string> result;
         string temp;
         int times;
-        for(char c = 'a' ; c <= 'z' ; ++c)
+        for(char i = 'a' ; i <= 'z' ; ++i)
         {
-            times = umap1[c];
-            temp = c;
+            times = umap1[i];
+            temp = i;
             while(times > 0)
             {
                 result.push_back(temp);
